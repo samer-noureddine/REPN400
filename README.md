@@ -35,7 +35,3 @@ To reproduce our simulations, navigate to the directory where you have downloade
 
 ## Support
 For any issues or questions, please open an issue on the GitHub repository or contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
-
----
-
-**Note**: Replace placeholders like GitHub links, email, and specific software details with the actual data relevant to your software. Ensure that all instructions are clear and accurate according to your software's setup and requirements.
