@@ -9,7 +9,7 @@ We use model simulations and experimental data to argue that language-related br
 
 ## System Requirements
 
-- This code has been tested on Python 3.9.8 in Windows 11. The code took roughly 4 hours to run on PC with i7-8700 CPU @ 3.20GHz, 3192 Mhz, 6 Cores, 12 Logical Processors, 16 GB RAM.
+- This code has been tested on Python 3.9.8 in Windows 11. The code took roughly 30 minutes to run on a PC with i7-8700 CPU @ 3.20GHz, 3192 Mhz, 6 Cores, 12 Logical Processors, 16 GB RAM.
 
 ### Software Dependencies:
 - Python 3.9
@@ -29,9 +29,9 @@ We use model simulations and experimental data to argue that language-related br
 ## Reproduce our simulations
 To reproduce our simulations, navigate to the directory where you have downloaded the files and simply run the following line:
    ```
-   python -m REPN400_simulations.py
+   python REPN400_simulations.py
    ```
-   This will run the simulations and reproduce Figures 1B, 2C, 2D, 3C, S1. It will create two new folders, `./data/` and `./plots/` where it will save the simulation data files and the plot image files respectively.
+   This will run the simulations and reproduce Figures 1B, 2C, 2D, 3C, S1 and S2. It will create two new folders, `./data/` and `./plots/` where it will save the simulation data files and the plot image files respectively.
 
 ## Support
 For any issues or questions, please open an issue on the GitHub repository or contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
