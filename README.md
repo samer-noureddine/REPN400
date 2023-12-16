@@ -34,7 +34,7 @@ To reproduce our simulations, navigate to the directory where you have downloade
    This will run the simulations and reproduce Figures 1B, 2C, 2D, 3C, S1. It will create two new folders, `./data/` and `./plots/` where it will save the simulation data files and the plot image files respectively.
 
 ## Support
-For any issues or questions, please open an issue on the GitHub repository or contact the maintainers at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
+For any issues or questions, please open an issue on the GitHub repository or contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
 
 ---
 
