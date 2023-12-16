@@ -3,7 +3,7 @@ Code for the paper:
 
 Wang L., Nour Eddine, S., Brothers T., Jensen O., Kuperberg G., _Predictive coding explains the dynamics of neural activity within the left ventromedial temporal lobe during reading comprehension._
 
-We use model simulations and experimental data to argue that language-related brain activity reflects two distinct kinds of information - predictions and prediction errors.
+We use model simulations and experimental data to show that predictive coding can explain both univariate and multivariate neural activity produced by expected or unexpected words during reading comprehension.
 
 ---
 
