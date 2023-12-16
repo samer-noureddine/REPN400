@@ -59,7 +59,25 @@ def tempRSA_withintrl(data):
     R = np.array(tempR)
     return R
 
+def FWHM_simple(y):
+    """
+    Calculate the Full Width at Half Maximum (FWHM) for a given curve.
 
+    Parameters:
+    x (numpy array): The x values of the curve.
+    y (numpy array): The y values of the curve.
+    
+    Returns:
+    float: The FWHM of the curve and the indices where it occurs
+    """
+    ymax = np.max(y)
+    imax = np.argmax(y)
+    yhalf = ymax / 2
+    left_idx = np.where(y[:imax] < yhalf)[0][-1]
+    right_idx = np.where(y[imax:] < yhalf)[0][0] + imax
+    x = np.arange(y.shape[0])
+    fwhm = x[right_idx] - x[left_idx]
+    return fwhm, left_idx, right_idx
 
 
 # ---------------------------------------------------------------------------
@@ -201,7 +219,6 @@ plt.savefig('./plots/Fig1B_univariate_summed_lexsem_diff.eps', format='eps', dpi
 plt.savefig('./plots/Fig1B_univariate_summed_lexsem_diff.png')
 plt.savefig('./plots/Fig1B_univariate_summed_lexsem_diff.png')
 
-
 # ----------------------------------------------------------------------------------------
 # Spatial RSA: within-expected > between-condition
 # FIGURE 3C and FIGURE S2
@@ -291,14 +308,27 @@ for i,level in enumerate(['lex', 'sem']):
 
     # plot difference waves
     plt.subplot(121+i)
-    plt.plot(spatial_rsa_within_expected - spatial_rsa_between_exp_unexp, label = 'within-expected minus between-condition')
+    plt.plot(spatial_rsa_within_expected - spatial_rsa_between_exp_unexp)
     plt.xlim(15,41)
-    plt.ylim(-0.01,0.4) if level == 'lex' else plt.ylim(-0.01,0.1)
-    plt.title('Simulated cross-trial similarity effect\nLexical') if level == 'lex' else plt.title('Simulated cross-trial similarity effect\nSemantic')
-    plt.legend()
+    if level == 'lex':
+        plt.ylim(-0.01,0.4)
+        plt.title('Simulated cross-trial similarity effect\nLexical')
+        plt.ylabel('Within-expected minus between-unexpected')
+    else:
+        plt.ylim(-0.01,0.1)
+        plt.title('Simulated cross-trial similarity effect\nSemantic') 
+        
+    # Calculate FWHM and indices
+    within_minus_between = spatial_rsa_within_expected - spatial_rsa_between_exp_unexp
+    timecourse_indices = np.arange(within_minus_between.shape[0])
+    fwhm, left_idx, right_idx = FWHM_simple(within_minus_between)
+    # Indicating the FWHM region
+    plt.axhline(y=within_minus_between[left_idx], color='r', linestyle='--', label='FWHM')
+    plt.axvline(x=timecourse_indices[left_idx], color='g', linestyle='--')
+    plt.axvline(x=timecourse_indices[right_idx], color='g', linestyle='--')
+
 plt.savefig('./plots/FigS2_spatRSA_summed_lex_and_sem_dif.eps', format='eps', dpi=300)
 plt.savefig('./plots/FigS2_spatRSA_summed_lex_and_sem_dif.png')
-
 
 # -------------------------------------------------------------------------------------------------
 # Temporal RSA: expected > unexpected
