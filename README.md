@@ -9,7 +9,7 @@ We use model simulations and experimental data to argue that language-related br
 
 ## System Requirements
 
-- This code has been tested on Python 3.9.8 in Windows 11. The code took roughly 30 minutes to run on a PC with i7-8700 CPU @ 3.20GHz, 3192 Mhz, 6 Cores, 12 Logical Processors, 16 GB RAM.
+- This code has been tested on Python 3.9.8 in Windows 11. The code took roughly 20 minutes to run on a PC with i7-8700 CPU @ 3.20GHz, 3192 Mhz, 6 Cores, 12 Logical Processors, 16 GB RAM.
 
 ### Software Dependencies:
 - Python 3.9
