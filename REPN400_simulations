@@ -81,8 +81,15 @@ with open(r'./helper_txt_files/unrepeated_matlab.csv') as csvfile:
 ##################### DEFINE STIMULI FOR EACH CONDITION ##################### 
 # ---------------------------------------------------------------------------
 
+num_trials = 120
+
 standard_stims = wordlist[:512]
+# shuffle the standard_stims using the randomly generated unrepeated_indices (using a particular set of indices for reproducibility) 
 unrepeated_stims = list(np.array(standard_stims)[unrepeated_indices])
+
+# keep only the first 120 inputs
+standard_stims = standard_stims[:num_trials]
+unrepeated_stims = unrepeated_stims[:num_trials]
 
 # Pre-activate expected words
 cloze_simulations_preactivate = run_simulation(sim_input = standard_stims, 
