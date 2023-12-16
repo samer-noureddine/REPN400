@@ -201,7 +201,7 @@ plt.savefig('./plots/Fig1B_univariate_summed_lexsem_diff.png')
 
 # ----------------------------------------------------------------------------------------
 # Spatial RSA: within-expected > between-condition
-# FIGURE 3C
+# FIGURE 3C and FIGURE S2
 # ----------------------------------------------------------------------------------------
 # get summed activity of PE and state separately
 exp_lexsem_st_sum = (np.sum(expected_word_lex_st,0) + np.sum(expected_word_sem_st,0))/2 #trial*time
@@ -238,6 +238,63 @@ plt.ylim(-0.01,0.10)
 plt.legend()
 plt.savefig('./plots/Fig3C_spatRSA_summed_lexsem_dif.eps', format='eps', dpi=300)
 plt.savefig('./plots/Fig3C_spatRSA_summed_lexsem_dif.png')
+
+
+# get summed activity of lexical PE, lexical ST, semantic PE and semantic ST separately
+exp_lex_st_sum = np.sum(expected_word_lex_st,0) #trial*time
+exp_lex_pe_sum = np.sum(expected_word_lex_pe,0)
+unexp_lex_st_sum = np.sum(unexpected_word_lex_st,0)
+unexp_lex_pe_sum = np.sum(unexpected_word_lex_pe,0)
+
+exp_sem_st_sum = np.sum(expected_word_sem_st,0) #trial*time
+exp_sem_pe_sum = np.sum(expected_word_sem_pe,0)
+unexp_sem_st_sum = np.sum(unexpected_word_sem_st,0)
+unexp_sem_pe_sum = np.sum(unexpected_word_sem_pe,0)
+
+exp_lex_stpe = np.stack((exp_lex_st_sum,exp_lex_pe_sum),axis=2)#trial*time*chan
+unexp_lex_stpe = np.stack((unexp_lex_st_sum,unexp_lex_pe_sum),axis=2)
+exp_lex_stpe = np.transpose(exp_lex_stpe, (0, 2, 1)) #trial*chan*time
+unexp_lex_stpe = np.transpose(unexp_lex_stpe, (0, 2, 1))
+
+exp_sem_stpe = np.stack((exp_sem_st_sum,exp_sem_pe_sum),axis=2)#trial*time*chan
+unexp_sem_stpe = np.stack((unexp_sem_st_sum,unexp_sem_pe_sum),axis=2)
+exp_sem_stpe = np.transpose(exp_sem_stpe, (0, 2, 1)) #trial*chan*time
+unexp_sem_stpe = np.transpose(unexp_sem_stpe, (0, 2, 1))
+
+exp_stpe = {
+    'lex':exp_lex_stpe,
+    'sem':exp_sem_stpe
+}
+unexp_stpe = {
+    'lex':unexp_lex_stpe,
+    'sem':unexp_sem_stpe
+}
+
+
+plt.figure(figsize = (12,4))
+for i,level in enumerate(['lex', 'sem']):
+    nvoxels = 20
+    num_trials= 120
+    chans = exp_stpe[level].shape[1]
+    MEG_expected = np.zeros((num_trials, nvoxels,41))
+    MEG_unexpected = np.zeros((num_trials, nvoxels,41))
+    for iter in range(exp_stpe[level].shape[-1]):
+        MEG_expected[:,:,iter] = np.dot(mapping_matrix, exp_stpe[level][:,:,iter].T).T  + noise.T #trial*voxel*time
+        MEG_unexpected[:,:,iter] = np.dot(mapping_matrix, unexp_stpe[level][:,:,iter].T).T + noise.T
+
+    spatial_rsa_within_expected = spatial_rsa_within(MEG_expected)
+    spatial_rsa_within_unexpected = spatial_rsa_within(MEG_unexpected)
+    spatial_rsa_between_exp_unexp = spatial_rsa_btw(MEG_expected,MEG_unexpected)
+
+    # plot difference waves
+    plt.subplot(121+i)
+    plt.plot(spatial_rsa_within_expected - spatial_rsa_between_exp_unexp, label = 'within-expected minus between-condition')
+    plt.xlim(15,41)
+    plt.ylim(-0.01,0.4) if level == 'lex' else plt.ylim(-0.01,0.1)
+    plt.title('Simulated cross-trial similarity effect\nLexical') if level == 'lex' else plt.title('Simulated cross-trial similarity effect\nSemantic')
+    plt.legend()
+plt.savefig('./plots/FigS2_spatRSA_summed_lex_and_sem_dif.eps', format='eps', dpi=300)
+plt.savefig('./plots/FigS2_spatRSA_summed_lex_and_sem_dif.png')
 
 
 # -------------------------------------------------------------------------------------------------
