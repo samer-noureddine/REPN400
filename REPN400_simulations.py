@@ -313,7 +313,7 @@ for i,level in enumerate(['lex', 'sem']):
     if level == 'lex':
         plt.ylim(-0.01,0.4)
         plt.title('Simulated cross-trial similarity effect\nLexical')
-        plt.ylabel('Within-expected minus between-unexpected')
+        plt.ylabel('Within-expected minus between')
     else:
         plt.ylim(-0.01,0.1)
         plt.title('Simulated cross-trial similarity effect\nSemantic') 
