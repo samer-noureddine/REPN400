@@ -45,4 +45,4 @@ If the code runs smoothly, the following plots should be produced:
 
 
 ## Support
-For any issues or questions, please open an issue on the GitHub repository or contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
+For any issues or questions, please contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
