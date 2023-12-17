@@ -31,7 +31,7 @@ To reproduce our simulations, navigate to the directory where you have downloade
    ```
    python REPN400_simulations.py
    ```
-   This will run the simulations and reproduce Figures 1B, 2C, 2D, 3C, S1 and S2. It will create two new folders, `./data/` and `./plots/` where it will save the simulation data files and the plot image files respectively.
+   This will run the simulations and reproduce Figures 1B, 2C, 2D, 3C, S1 and S2. It will create two new folders, `./data/` and `./plots/` where it will save the simulation data files and the plot image files respectively. The data and plots have been pre-computed and uploaded to [OSF](https://osf.io/7cn2f/?view_only=ab6f8fc62dbe4487a0b9c106e9658408).
 ## Expected outputs
 If the code runs smoothly, the following plots should be produced:
 ![Fig1B](https://github.com/samer-noureddine/REPN400/blob/main/precomputed_plots/Fig1B_univariate_summed_lexsem_diff.png?raw=true)
