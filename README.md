@@ -26,8 +26,8 @@ We use model simulations and experimental data to show that predictive coding ca
    pip install -r requirements.txt
    ```
 
-## Reproduce our simulations
-To reproduce our simulations, navigate to the directory where you have downloaded the files and simply run the following line:
+## Reproducing simulations
+To reproduce the simulations, navigate to the directory where you have downloaded the files and simply run the following line:
    ```
    python REPN400_simulations.py
    ```
@@ -45,4 +45,4 @@ If the code runs smoothly, the following plots should be produced:
 
 
 ## Support
-For any issues or questions, please contact us at [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
+For assistance or inquiries, please contact [samer.a.noureddine@gmail.com](mailto:samer.a.noureddine@gmail.com).
