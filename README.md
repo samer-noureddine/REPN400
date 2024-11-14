@@ -1,5 +1,5 @@
 # REPN400
-Code for the paper:
+Simulation code for the paper:
 
 Wang L., Nour Eddine, S., Brothers T., Jensen O., Kuperberg G., _Predictive coding explains the dynamics of neural activity within the left ventromedial temporal lobe during reading comprehension._
 
