@@ -1,7 +1,7 @@
 # REPN400
 Simulation code for the paper:
 
-Wang L., Nour Eddine, S., Brothers T., Jensen O., Kuperberg G., _Predictive coding explains the dynamics of neural activity within the left ventromedial temporal lobe during reading comprehension._
+Nour Eddine, S.\*, Wang L.,\* Brothers T., Jensen O., Kuperberg G. (2024), _An implemented predictive coding model of lexico-semantic processing explains the dynamics of univariate and multivariate activity within the left ventromedial temporal lobe during reading comprehension_, _NeuroImage_. (* Equal contributors)
 
 We use model simulations and experimental data to show that predictive coding can explain both univariate and multivariate neural activity produced by expected or unexpected words during reading comprehension.
 
